@@ -5,8 +5,9 @@ import { AppService } from './app.service';
 import { TweetModule } from './tweet/tweet.module';
 
 @Module({
-  imports: [TweetModule, TypeOrmModule.forRoot({
-    type: 'postgres',
+  imports: [TweetModule, TypeOrmModule.forRootAsync({
+   useFactory:()=>({
+     type: 'postgres',
     entities: [],
     synchronize: true,
     host: 'localhost',
@@ -14,6 +15,7 @@ import { TweetModule } from './tweet/tweet.module';
     username: 'postgres',
     password: 'India@#2047',
     database: 'nestjs',
+   })
   })],
   controllers: [AppController],
   providers: [AppService],
