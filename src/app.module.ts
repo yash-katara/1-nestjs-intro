@@ -6,6 +6,8 @@ import { TweetModule } from './tweet/tweet.module';
 
 @Module({
   imports: [TweetModule, TypeOrmModule.forRootAsync({
+    imports: [],
+    inject: [],
    useFactory:()=>({
      type: 'postgres',
     entities: [],
