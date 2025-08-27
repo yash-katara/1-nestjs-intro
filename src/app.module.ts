@@ -3,6 +3,8 @@ import { AppController } from './app.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppService } from './app.service';
 import { TweetModule } from './tweet/tweet.module';
+import { ProdModule } from './prod/prod.module';
+import { DataModule } from './data/data.module';
 
 @Module({
   imports: [TweetModule, TypeOrmModule.forRootAsync({
@@ -18,7 +20,7 @@ import { TweetModule } from './tweet/tweet.module';
     password: 'India@#2047',
     database: 'nestjs',
    })
-  })],
+  }), ProdModule, DataModule],
   controllers: [AppController],
   providers: [AppService],
 })
